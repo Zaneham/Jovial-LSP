@@ -1,0 +1,179 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "JOVIAL",
+  "scopeName": "source.jovial",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#operators" },
+    { "include": "#declarations" },
+    { "include": "#status-values" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.jovial",
+          "match": "\"[^\"]*\"",
+          "comment": "Inline comments in quotes"
+        },
+        {
+          "name": "comment.line.dollar.jovial",
+          "match": "\\$.*$",
+          "comment": "Dollar-sign comments (implementation dependent)"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.jovial",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.jovial",
+              "match": "''"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.jovial",
+          "match": "\\b\\d+\\.\\d+([Ee][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.integer.jovial",
+          "match": "\\b\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.jovial",
+          "match": "\\b[01]+B\\b",
+          "comment": "Binary literals"
+        },
+        {
+          "name": "constant.numeric.octal.jovial",
+          "match": "\\b[0-7]+O\\b",
+          "comment": "Octal literals"
+        },
+        {
+          "name": "constant.numeric.hex.jovial",
+          "match": "\\b[0-9A-Fa-f]+H\\b",
+          "comment": "Hex literals"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.jovial",
+          "match": "\\b(IF|THEN|ELSE|FOR|BY|WHILE|UNTIL|CASE|DEFAULT|FALLTHRU|GOTO|EXIT|ABORT|RETURN|STOP)\\b"
+        },
+        {
+          "name": "keyword.control.structure.jovial",
+          "match": "\\b(START|TERM|BEGIN|END|COMPOOL|PROGRAM)\\b"
+        },
+        {
+          "name": "keyword.other.jovial",
+          "match": "\\b(AND|OR|NOT|XOR|EQV|MOD|ABS|SGN)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.jovial",
+          "match": "\\b(ITEM|TABLE|PROC|TYPE|BLOCK)\\b"
+        },
+        {
+          "name": "storage.type.primitive.jovial",
+          "match": "\\b(S|U|F|A|B|C|P|STATUS|LIKE)\\b(?=\\s|\\d|;|$)",
+          "comment": "Type abbreviations"
+        },
+        {
+          "name": "storage.modifier.jovial",
+          "match": "\\b(STATIC|CONSTANT|PARALLEL|OVERLAY|POS|ROUND|TRUNCATE|DENSE|DEF|REF|DEFINE)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.jovial",
+          "match": "(=|<>|<|>|<=|>=|EQ|NE|LT|GT|LE|GE)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.jovial",
+          "match": "(\\+|-|\\*|/|\\*\\*)"
+        },
+        {
+          "name": "keyword.operator.assignment.jovial",
+          "match": ":="
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "\\b(ITEM)\\s+([A-Z][A-Z0-9']*)",
+          "captures": {
+            "1": { "name": "storage.type.jovial" },
+            "2": { "name": "variable.other.jovial" }
+          }
+        },
+        {
+          "match": "\\b(TABLE)\\s+([A-Z][A-Z0-9']*)",
+          "captures": {
+            "1": { "name": "storage.type.jovial" },
+            "2": { "name": "entity.name.class.jovial" }
+          }
+        },
+        {
+          "match": "\\b(PROC)\\s+([A-Z][A-Z0-9']*)",
+          "captures": {
+            "1": { "name": "storage.type.jovial" },
+            "2": { "name": "entity.name.function.jovial" }
+          }
+        },
+        {
+          "match": "\\b(TYPE)\\s+([A-Z][A-Z0-9']*)",
+          "captures": {
+            "1": { "name": "storage.type.jovial" },
+            "2": { "name": "entity.name.type.jovial" }
+          }
+        },
+        {
+          "match": "\\b(DEFINE)\\s+([A-Z][A-Z0-9']*)",
+          "captures": {
+            "1": { "name": "storage.modifier.jovial" },
+            "2": { "name": "constant.other.jovial" }
+          }
+        }
+      ]
+    },
+    "status-values": {
+      "patterns": [
+        {
+          "name": "constant.language.status.jovial",
+          "match": "V\\s*\\(\\s*[A-Z][A-Z0-9']*\\s*\\)",
+          "comment": "Status values like V(RED), V(GREEN)"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.jovial",
+          "match": "\\b[A-Z][A-Z0-9']*\\b"
+        }
+      ]
+    }
+  }
+}

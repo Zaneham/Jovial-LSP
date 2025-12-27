@@ -1,0 +1,29 @@
+{
+  "comments": {
+    "lineComment": "\""
+  },
+  "brackets": [
+    ["(", ")"],
+    ["BEGIN", "END"]
+  ],
+  "autoClosingPairs": [
+    { "open": "(", "close": ")" },
+    { "open": "'", "close": "'" },
+    { "open": "\"", "close": "\"" }
+  ],
+  "surroundingPairs": [
+    { "open": "(", "close": ")" },
+    { "open": "'", "close": "'" }
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*(BEGIN|PROC|TABLE)\\b",
+      "end": "^\\s*END\\b"
+    }
+  },
+  "wordPattern": "[A-Z][A-Z0-9']*",
+  "indentationRules": {
+    "increaseIndentPattern": "^\\s*(BEGIN|PROC|TABLE|IF|FOR|WHILE|CASE)\\b",
+    "decreaseIndentPattern": "^\\s*(END|ELSE)\\b"
+  }
+}

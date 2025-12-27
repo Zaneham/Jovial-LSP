@@ -1,0 +1,94 @@
+{
+  "name": "jovial-lsp",
+  "displayName": "JOVIAL J73 Language Support",
+  "description": "Language Server Protocol support for JOVIAL J73 (MIL-STD-1589C) - the language powering F-15, B-52, AWACS, and other critical military systems",
+  "version": "1.0.0",
+  "author": "Zane Hambly",
+  "license": "Apache-2.0",
+  "publisher": "zane-hambly",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "jovial",
+    "j73",
+    "mil-std-1589",
+    "military",
+    "embedded",
+    "avionics",
+    "legacy"
+  ],
+  "activationEvents": [
+    "onLanguage:jovial"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "jovial",
+        "aliases": [
+          "JOVIAL",
+          "J73",
+          "jovial"
+        ],
+        "extensions": [
+          ".jov",
+          ".j73",
+          ".cpl",
+          ".jovial"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jovial",
+        "scopeName": "source.jovial",
+        "path": "./syntaxes/jovial.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "JOVIAL J73",
+      "properties": {
+        "jovial.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to Python interpreter for LSP server"
+        },
+        "jovial.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to jovial_lsp_server.py (leave empty to use bundled)"
+        },
+        "jovial.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces communication between VS Code and the JOVIAL language server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0"
+  }
+}
