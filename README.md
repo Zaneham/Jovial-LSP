@@ -179,6 +179,18 @@ Apache License 2.0 - See LICENSE file for details.
 
 Copyright 2025 Zane Hambly
 
+## Related Projects
+
+If you've enjoyed writing code for aircraft that could, at any moment, be called upon to do something terribly important, you might also fancy:
+
+- **[CMS-2 LSP](https://github.com/Zaneham/cms2-lsp)** - For the US Navy's tactical combat systems. Because the sea is also full of things that need precise timing and questionable documentation.
+
+- **[CORAL 66 LSP](https://github.com/Zaneham/coral66-lsp)** - The British Ministry of Defence's real-time language. Allegedly developed between tea breaks at the Royal Radar Establishment, Malvern. Features proper documentation with Crown Copyright, as one would expect.
+
+- **[HAL/S LSP](https://github.com/Zaneham/hals-lsp)** - NASA's Space Shuttle language. For when you need your vectors and matrices handled by a computer that absolutely cannot restart in the middle of re-entry.
+
+- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/Minuteman-computer-emulator)** - An emulator for the D17B/D37C computers that have been keeping 400 nuclear missiles pointed at things since 1962. We're not entirely sure why we built this. Seemed like a good idea at the time.
+
 ## Acknowledgements
 
 - Jules Schwartz - Creator of JOVIAL (1959)
