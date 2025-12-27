@@ -189,7 +189,7 @@ If you've enjoyed writing code for aircraft that could, at any moment, be called
 
 - **[HAL/S LSP](https://github.com/Zaneham/hals-lsp)** - NASA's Space Shuttle language. For when you need your vectors and matrices handled by a computer that absolutely cannot restart in the middle of re-entry.
 
-- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/Minuteman-computer-emulator)** - An emulator for the D17B/D37C computers that have been keeping 400 nuclear missiles pointed at things since 1962. We're not entirely sure why we built this. Seemed like a good idea at the time.
+- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/Minuteman-computer-emulator)** - An emulator for the D17B/D37C computers that have been keeping 400 nuclear missiles pointed at things since 1962. I'm not entirely sure why I built this. Seemed like a good idea at the time.
 
 ## Acknowledgements
 
