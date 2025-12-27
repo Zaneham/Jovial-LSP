@@ -142,7 +142,7 @@ This LSP was built using official JOVIAL documentation from the Defence Technica
 |----------|-------------|------|
 | **DTIC ADA142780** | J73 Tutorial - Programming language tutorial | 1982 |
 
-All documents are available through the Defence Technical Information Centre (DTIC) and are preserved in the Hopper Project historical computing archive.
+All documents are available through the Defence Technical Information Centre (DTIC) and are preserved in my own historical computing archive.
 
 ## Language History
 
