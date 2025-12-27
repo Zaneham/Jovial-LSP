@@ -185,4 +185,4 @@ Copyright 2025 Zane Hambly
 - System Development Corporation
 - US Air Force JOVIAL Programme Office
 - Defence Technical Information Centre (DTIC)
-- The Hopper Project - Historical computing preservation
+- My grandad :-) 
