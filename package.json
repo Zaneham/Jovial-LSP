@@ -2,7 +2,7 @@
   "name": "jovial-lsp",
   "displayName": "JOVIAL J73 Language Support",
   "description": "Language Server Protocol support for JOVIAL J73 (MIL-STD-1589C) - the language powering F-15, B-52, AWACS, and other critical military systems",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Zane Hambly",
   "license": "Apache-2.0",
   "publisher": "ZaneHambly",
