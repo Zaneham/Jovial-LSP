@@ -74,7 +74,7 @@
       "patterns": [
         {
           "name": "keyword.control.jovial",
-          "match": "\\b(IF|THEN|ELSE|FOR|BY|WHILE|UNTIL|CASE|DEFAULT|FALLTHRU|GOTO|EXIT|ABORT|RETURN|STOP)\\b"
+          "match": "\\b(IF|THEN|ELSE|ORIF|FOR|BY|WHILE|UNTIL|LOOP|CASE|DEFAULT|FALLTHRU|GOTO|EXIT|ABORT|RETURN|STOP)\\b"
         },
         {
           "name": "keyword.control.structure.jovial",
@@ -82,7 +82,7 @@
         },
         {
           "name": "keyword.other.jovial",
-          "match": "\\b(AND|OR|NOT|XOR|EQV|MOD|ABS|SGN)\\b"
+          "match": "\\b(AND|OR|NOT|XOR|EQV|IMP|NAND|NOR|MOD|ABS|SGN)\\b"
         }
       ]
     },
