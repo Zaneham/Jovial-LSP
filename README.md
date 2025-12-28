@@ -193,6 +193,12 @@ If you've enjoyed writing code for aircraft that could, at any moment, be called
 
 - **[Minuteman Assembler](https://github.com/Zaneham/minuteman-assembler)** - Two-pass assembler for the D17B/D37C. For when the emulator wasn't enough and you needed a complete toolchain for nuclear missiles. Perfectly normal hobby.
 
+## Contact
+
+Found a bug? Want to discuss the finer points of MIL-STD-1589C? Just want to tell someone you still write JOVIAL and they won't believe you?
+
+zanehambly@gmail.com - I answer emails faster than a B-52 answers to Strategic Command.
+
 ## Acknowledgements
 
 - Jules Schwartz - Creator of JOVIAL (1959)
