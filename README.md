@@ -2,22 +2,30 @@
 
 [![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/ZaneHambly.jovial-lsp?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ZaneHambly.jovial-lsp)
 
-Language Server Protocol (LSP) implementation for JOVIAL J73, the programming language defined by MIL-STD-1589C.
+Language Server Protocol (LSP) implementation for **JOVIAL J73**, the programming language that has been flying fighter jets since your grandparents were dating.
 
 ## What is JOVIAL?
 
-**JOVIAL** (Jules' Own Version of the International Algebraic Language) was developed in 1959 by Jules Schwartz at System Development Corporation for US Air Force embedded systems. It remains in active use in critical military systems worldwide.
+In 1959, a programmer named Jules Schwartz at System Development Corporation needed a language for US Air Force embedded systems. He called it **JOVIAL**—"Jules' Own Version of the International Algebraic Language." This is the kind of naming confidence that only existed before marketing departments were invented.
+
+Jules was right to be confident. Sixty-five years later, JOVIAL code is still flying:
 
 ### Systems Still Running JOVIAL Code
 
-- **Fighter Aircraft:** F-15, F-16 (pre-Block 50), F-117, F-111
-- **Bombers:** B-52, B-1B, B-2 Spirit
-- **Transport:** C-130, C-141, C-17
-- **Surveillance:** E-3 AWACS, U-2
-- **Naval:** Aegis cruisers
-- **Missiles:** Advanced Cruise Missile, MLRS
-- **Satellites:** Milstar
-- **Other:** NORAD air defence, UH-60 Black Hawk
+| Category | Systems |
+|----------|---------|
+| **Fighter Aircraft** | F-15 Eagle, F-16 Fighting Falcon (pre-Block 50), F-117 Nighthawk, F-111 Aardvark |
+| **Bombers** | B-52 Stratofortress, B-1B Lancer, B-2 Spirit |
+| **Transport** | C-130 Hercules, C-141 Starlifter, C-17 Globemaster |
+| **Surveillance** | E-3 AWACS, U-2 Dragon Lady |
+| **Naval** | Aegis cruisers |
+| **Missiles** | Advanced Cruise Missile, MLRS |
+| **Satellites** | Milstar |
+| **Command & Control** | NORAD air defence, UH-60 Black Hawk |
+
+When an F-15 pilot pulls the trigger, JOVIAL code handles what happens next. When a B-52 needs to know where it is over the Pacific, JOVIAL code tells it. When NORAD tracks something entering North American airspace, JOVIAL code is part of that decision chain.
+
+The US Air Force officially stopped maintaining JOVIAL in 2010. The aircraft kept flying. The code keeps running. Nobody has time to rewrite it, and frankly, it works.
 
 ## Features
 
@@ -32,12 +40,15 @@ Language Server Protocol (LSP) implementation for JOVIAL J73, the programming la
 - Keywords and control flow
 - Type declarations (S, U, F, A, B, C, STATUS)
 - STATUS values V(name)
-- Comments (quoted strings)
+- Comments (quoted strings, because JOVIAL predates the semicolon wars)
 - String literals
 
 ## J73 Language Overview
 
+JOVIAL uses single-character type abbreviations because when you're writing avionics code on 1960s hardware, every byte matters. Also, the programmers were busy. Fighter jets to build.
+
 ### Type Abbreviations
+
 | Type | Description | Example |
 |------|-------------|---------|
 | `S` | Signed integer | `ITEM COUNT S 16;` |
@@ -49,21 +60,24 @@ Language Server Protocol (LSP) implementation for JOVIAL J73, the programming la
 | `P` | Pointer | `ITEM PTR P;` |
 | `STATUS` | Enumeration | `ITEM MODE STATUS (V(ON), V(OFF));` |
 
-### Key Constructs
+### Sample Code
 
 ```jovial
 " This is a comment in JOVIAL "
+" Yes, comments are just quoted strings "
+" Jules had opinions "
 
 START PROGRAM'NAME;
 
 " Constants "
 DEFINE MAX'SIZE = 100;
 
-" Variables "
+" Variables - note the apostrophe in names "
+" This was considered good practice in 1959 "
 ITEM COUNTER STATIC S 16;
 ITEM ALTITUDE F 32 = 0.0;
 
-" Arrays/Structures "
+" Arrays and Structures "
 TABLE DATA (1: MAX'SIZE);
 BEGIN
     ITEM VALUE F 32;
@@ -81,6 +95,8 @@ END
 TERM
 ```
 
+The apostrophe-in-names convention (`MAX'SIZE`, `PROGRAM'NAME`) was JOVIAL's solution to readable identifiers before camelCase or snake_case were invented. It looks strange now. It made perfect sense in 1959.
+
 ## Installation
 
 ### VS Code Extension
@@ -88,12 +104,13 @@ TERM
 1. Install the extension from the VS Code marketplace
 2. Ensure Python 3.8+ is installed
 3. Open any `.jov`, `.j73`, or `.jovial` file
+4. Congratulations, you can now read F-15 avionics code
 
 ### Manual Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-repo/jovial-lsp
+git clone https://github.com/Zaneham/jovial-lsp
 
 # Install dependencies
 cd jovial-lsp
@@ -116,95 +133,102 @@ code --install-extension jovial-lsp-1.0.0.vsix
 
 ## File Extensions
 
-- `.jov` - JOVIAL source file
-- `.j73` - JOVIAL J73 source file
-- `.cpl` - COMPOOL (shared data module)
-- `.jovial` - JOVIAL source file (long form)
+| Extension | Description |
+|-----------|-------------|
+| `.jov` | JOVIAL source file |
+| `.j73` | JOVIAL J73 source file |
+| `.cpl` | COMPOOL (shared data module) |
+| `.jovial` | JOVIAL source file (for the unabbreviated) |
 
 ## Documentation Sources
 
-This LSP was built using official JOVIAL documentation from the Defence Technical Information Centre (DTIC) and other authoritative sources:
+This LSP was built using official JOVIAL documentation from the Defence Technical Information Centre (DTIC). These documents are preserved because someone at DTIC understood that software archaeology is a real discipline.
 
 ### Standards
+
 | Document | Description | Year |
 |----------|-------------|------|
 | **MIL-STD-1589C** | Official J73 language standard | 1984 |
 | **DTIC ADA094930** | MIL-STD-1589B Draft standard | 1980 |
 
 ### Programming Manuals
+
 | Document | Description | Year |
 |----------|-------------|------|
-| **DTIC ADA101061** | J73 Programming Manual - Combined tutorial and reference | 1981 |
-| **DTIC ADA061714** | JOCIT - JOVIAL Compiler Implementation Tool | - |
+| **DTIC ADA101061** | J73 Programming Manual | 1981 |
+| **DTIC ADA061714** | JOCIT — JOVIAL Compiler Implementation Tool | — |
 | **DTIC ADA037637** | Language Evaluation: JOVIAL J3B vs ALGOL 68, PASCAL, SIMULA 67, TACPOL | 1977 |
-| **DTIC ADA145697** | AFSC Avionics Standards Conference proceedings | 1982 |
 
 ### Tutorials
+
 | Document | Description | Year |
 |----------|-------------|------|
-| **DTIC ADA142780** | J73 Tutorial - Programming language tutorial | 1982 |
+| **DTIC ADA142780** | J73 Tutorial | 1982 |
 
-All documents are available through the Defence Technical Information Centre (DTIC) and are preserved in my own historical computing archive.
+The 1977 language evaluation (ADA037637) is particularly entertaining. The Air Force seriously considered replacing JOVIAL with Pascal or ALGOL 68. They didn't. The F-15 was already flying.
 
 ## Language History
 
-- **1959:** JOVIAL developed at SDC by Jules Schwartz
-- **1973:** Standardised as MIL-STD-1589
-- **1979:** MIL-STD-1589A revision
-- **1980:** MIL-STD-1589B revision
-- **1984:** MIL-STD-1589C (current standard)
-- **2010:** USAF JOVIAL Programme Office (JPO) ceased active maintenance
+- **1959:** Jules Schwartz develops JOVIAL at SDC. Names it after himself. Correctly.
+- **1973:** Standardised as MIL-STD-1589. The military discovers JOVIAL exists.
+- **1979:** MIL-STD-1589A. The standard gets updated.
+- **1980:** MIL-STD-1589B. The standard gets updated again.
+- **1984:** MIL-STD-1589C. The current standard. Forty years old.
+- **2010:** US Air Force JOVIAL Programme Office ceases active maintenance.
+- **2025:** Fighter jets continue flying. JOVIAL continues running.
 
-Despite being "unmaintained" since 2010, JOVIAL code continues to fly in military aircraft and control weapon systems worldwide.
+The fourteen-year gap between "we stopped maintaining this" and "but everything still works" is not a bug. It's a testament to the original engineering.
 
 ## Why This Matters
 
-The programmers who wrote these systems are retiring. The documentation is disappearing. Modern developers need tools to understand, maintain, and eventually modernise these critical systems.
+The programmers who wrote these systems are retiring. Some have already died. The documentation is scattered across filing cabinets, archive boxes, and DTIC databases. Modern developers need tools to understand, maintain, and eventually modernise these critical systems.
 
-This LSP provides the foundation for:
+This LSP exists because someone needs to be able to read this code. If you're maintaining a B-52's mission computer in 2025, you shouldn't have to do it with a text editor from 1985.
+
+The foundation for:
 - Understanding legacy JOVIAL codebases
-- Training new maintainers
+- Training new maintainers (yes, they exist)
 - Enabling code analysis and modernisation
-- Preserving institutional knowledge
+- Preserving institutional knowledge before it's gone
 
 ## Contributing
 
 Contributions are welcome, particularly:
 - Additional syntax patterns from real-world JOVIAL code
 - Improved semantic analysis
-- Integration with JOVIAL compilers
-- Documentation corrections and additions
+- Integration with JOVIAL compilers (if you have access to one)
+- Documentation corrections from people who were there
 
 ## Licence
 
-Apache License 2.0 - See LICENSE file for details.
+Apache License 2.0 — See LICENSE file for details.
 
 Copyright 2025 Zane Hambly
 
 ## Related Projects
 
-If you've enjoyed writing code for aircraft that could, at any moment, be called upon to do something terribly important, you might also fancy:
+If you've enjoyed providing tooling for aircraft that could, at any moment, be called upon to do something terribly important, you might also appreciate:
 
-- **[CMS-2 LSP](https://github.com/Zaneham/cms2-lsp)** - For the US Navy's tactical combat systems. Because the sea is also full of things that need precise timing and questionable documentation.
+- **[CMS-2 LSP](https://github.com/Zaneham/cms2-lsp)** — The US Navy's tactical combat systems language. Same era, different element. Aegis tracking instead of F-15 avionics.
 
-- **[CORAL 66 LSP](https://github.com/Zaneham/coral66-lsp)** - The British Ministry of Defence's real-time language. Developed between tea breaks at the Royal Radar Establishment, Malvern. Features Crown Copyright and a stiff upper lip.
+- **[CORAL 66 LSP](https://github.com/Zaneham/coral66-lsp)** — British Ministry of Defence real-time language. Tornado aircraft and Royal Navy vessels. Developed at Malvern, presumably between tea breaks.
 
-- **[HAL/S LSP](https://github.com/Zaneham/hals-lsp)** - NASA's Space Shuttle language. For when you need your vectors and matrices handled by a computer that absolutely cannot restart mid-flight.
+- **[HAL/S LSP](https://github.com/Zaneham/hals-lsp)** — NASA's Space Shuttle language. For when atmospheric flight isn't challenging enough.
 
-- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/minuteman-emu)** - An emulator for the D17B/D37C computers that have been keeping 400 nuclear missiles pointed at things since 1962. I'm not entirely sure why I built this. Seemed like a good idea at the time.
+- **[MUMPS LSP](https://github.com/Zaneham/mumps-lsp)** — The language running hospital systems. 305 million patient records. Different kind of life-critical.
 
-- **[Minuteman Assembler](https://github.com/Zaneham/minuteman-assembler)** - Two-pass assembler for the D17B/D37C. For when the emulator wasn't enough and you needed a complete toolchain for nuclear missiles. Perfectly normal hobby.
+- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/minuteman-emu)** — An emulator for ICBM guidance computers. I'm not entirely sure why I built this. Seemed important at the time.
 
 ## Contact
 
-Found a bug? Want to discuss the finer points of MIL-STD-1589C? Just want to tell someone you still write JOVIAL and they won't believe you?
+Found a bug? Want to discuss the finer points of MIL-STD-1589C? Just want to tell someone you still write JOVIAL and have them believe you?
 
-zanehambly@gmail.com - I answer emails faster than a B-52 answers to Strategic Command.
+zanehambly@gmail.com — Response time faster than a B-52 answers to Strategic Command.
 
 ## Acknowledgements
 
-- Jules Schwartz - Creator of JOVIAL (1959)
+- Jules Schwartz — Creator of JOVIAL (1959). Named a language after himself. It's still flying.
 - System Development Corporation
 - US Air Force JOVIAL Programme Office
 - Defence Technical Information Centre (DTIC)
-- My grandad :-) 
+- My grandad, who encouraged me to put my stuff out there :-)
