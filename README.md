@@ -1,5 +1,7 @@
 # JOVIAL J73 Language Server
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/ZaneHambly.jovial-lsp?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ZaneHambly.jovial-lsp)
+
 Language Server Protocol (LSP) implementation for JOVIAL J73, the programming language defined by MIL-STD-1589C.
 
 ## What is JOVIAL?
