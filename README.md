@@ -181,9 +181,11 @@ The fourteen-year gap between "we stopped maintaining this" and "but everything 
 
 ## Why This Matters
 
-The programmers who wrote these systems are retiring. Some have already died. The documentation is scattered across filing cabinets, archive boxes, and DTIC databases. Modern developers need tools to understand, maintain, and eventually modernise these critical systems.
+The engineers who wrote F-15 avionics in the 1970s are now in their seventies and eighties. Their knowledge exists in their heads, in retirement communities, in memories that fade a little more each year. The documentation lives in filing cabinets, DTIC archives, and boxes in hangars that haven't been opened since the Cold War ended.
 
-This LSP exists because someone needs to be able to read this code. If you're maintaining a B-52's mission computer in 2025, you shouldn't have to do it with a text editor from 1985.
+But the aircraft keep flying. And someone needs to maintain the code.
+
+This LSP exists because if you're the poor soul tasked with updating a B-52's mission computer in 2025, you shouldn't have to do it in vi with no syntax highlighting.
 
 The foundation for:
 - Understanding legacy JOVIAL codebases
