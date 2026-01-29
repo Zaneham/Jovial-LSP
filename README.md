@@ -211,6 +211,8 @@ Copyright 2025 Zane Hambly
 
 If you've enjoyed providing tooling for aircraft that could, at any moment, be called upon to do something terribly important, you might also appreciate:
 
+- **[JOVIAL J73 Compiler](https://github.com/Zaneham/jovial-compiler)** — The companion to this LSP. A fully functional native compiler for JOVIAL J73, targeting LLVM. Write your code with syntax highlighting, then compile it to an actual executable. The full 1959 experience, now with 2026 tooling.
+
 - **[CMS-2 LSP](https://github.com/Zaneham/cms2-lsp)** — The US Navy's tactical combat systems language. Same era, different element. Aegis tracking instead of F-15 avionics.
 
 - **[CORAL 66 LSP](https://github.com/Zaneham/coral66-lsp)** — British Ministry of Defence real-time language. Tornado aircraft and Royal Navy vessels. Developed at Malvern, presumably between tea breaks.
